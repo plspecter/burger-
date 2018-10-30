@@ -18,6 +18,19 @@ var connection = mysql.createConnection({
     database: "burgers_db"
   });
 
+//Data
+var burgers = [
+{ name: "Veggie Burger", price: 6,},
+{ name: "Whopper", price: 5,},
+{ name: "Bacon King", price: 8,},
+];
+
+//Routes
+
+
+
+
+
   // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {
   // Log (server-side) when our server has started
