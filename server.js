@@ -9,12 +9,24 @@ var app = express();
 // process.env.PORT lets the port be set by Heroku
 var PORT = process.env.PORT || 8090;
 
+//Set up express to handle data
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
+
+//grab handlebars
+var handlebars = require("express-handlebars");
+app.engine("handlebars", handlebars({defaultLayout:"main"}));
+app.set("view engine", "handlebars")
+
+//grab mysql
+var mysql = require("mysql");
+
 //this is where we call on our mysql database
 var connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",
-    password: "",
+    password: "password",
     database: "burgers_db"
   });
 

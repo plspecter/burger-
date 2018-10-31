@@ -6,8 +6,10 @@ var burger = require("..models/burger.js");
 app.get("/", function (req, res) {
 
 
-    connection.query("SELECT * FROM  burger", function (err, result) {
-
+    connection.query("SELECT * FROM  burger", [req.body.burger], function (err, result) {
+    if (err) {
+        throw err;
+    }
     })
 
 });
